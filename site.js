@@ -36,6 +36,7 @@
         (g("f-age") ? "\nAge: " + g("f-age") : "") +
         (g("f-parent") ? "\nParent: " + g("f-parent") : "") +
         "\nInterested in: " + g("f-level") +
+        (g("f-batch") ? "\nPreferred batch: " + g("f-batch") : "") +
         (g("f-msg") ? "\n\n" + g("f-msg") : "");
       var a = document.createElement("a");
       a.href = "https://wa.me/918548848884?text=" + encodeURIComponent(msg);
