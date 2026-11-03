@@ -262,3 +262,35 @@ textarea{min-height:100px;resize:vertical}
 .fee strong{font:800 1.35rem var(--f-display);color:var(--ink);margin-right:4px}
 .fee-lg{margin-top:8px}
 .fee-lg strong{font-size:1.6rem}
+
+/* fees toggle */
+.fees-wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(28px,5vw,64px);align-items:start}
+.fees-wrap > *{min-width:0}
+@media (max-width:860px){.fees-wrap{grid-template-columns:1fr}}
+.plans{max-width:560px}
+.plan-radio{position:absolute;opacity:0;pointer-events:none}
+.plan-toggle{display:inline-flex;flex-wrap:wrap;gap:4px;padding:4px;border-radius:999px;background:var(--surface);border:1px solid var(--line)}
+.plan-toggle label{display:inline-flex;align-items:center;gap:8px;padding:9px 18px;border-radius:999px;font-weight:600;font-size:.95rem;cursor:pointer;color:var(--muted);transition:background .2s,color .2s}
+.plan-toggle .save{font:500 .7rem var(--f-mono);letter-spacing:.03em;padding:3px 8px;border-radius:999px;background:color-mix(in srgb,var(--gold) 28%,transparent);color:var(--ink)}
+.plan-radio:nth-of-type(1):checked ~ .plan-toggle label:nth-of-type(1),
+.plan-radio:nth-of-type(2):checked ~ .plan-toggle label:nth-of-type(2){background:var(--navy);color:var(--on-navy)}
+.plan-radio:nth-of-type(1):checked ~ .plan-toggle label:nth-of-type(1) .save{background:var(--gold);color:var(--gold-ink)}
+.plan-radio:nth-of-type(1):focus-visible ~ .plan-toggle label:nth-of-type(1),
+.plan-radio:nth-of-type(2):focus-visible ~ .plan-toggle label:nth-of-type(2){outline:3px solid var(--gold);outline-offset:2px}
+.plan-card{margin-top:16px;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:clamp(20px,3vw,30px);display:grid;gap:16px;justify-items:start}
+.plan{display:none}
+.plan-radio:nth-of-type(1):checked ~ .plan-card .p9m,
+.plan-radio:nth-of-type(2):checked ~ .plan-card .pq{display:grid;gap:8px;animation:planin .3s ease}
+@keyframes planin{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.plan-price{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.plan-price strong{font:800 clamp(2.4rem,6vw,3.2rem)/1 var(--f-display);letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.plan-price span{color:var(--muted);font-weight:500}
+.plan p{color:var(--muted);max-width:52ch}
+.plan-inc{margin:0;padding:16px 0 0;list-style:none;display:grid;gap:8px;border-top:1px dashed var(--line);width:100%}
+.plan-inc li{padding-left:26px;position:relative}
+.plan-inc li::before{content:"";position:absolute;left:4px;top:.45em;width:12px;height:7px;border-left:2.5px solid var(--gold);border-bottom:2.5px solid var(--gold);transform:rotate(-45deg)}
+.plan-toggle{flex-wrap:nowrap;max-width:100%}
+@media (max-width:520px){
+  .plan-toggle{display:flex;width:100%}
+  .plan-toggle label{flex:1;justify-content:center;padding:9px 10px;font-size:.9rem;gap:6px;text-align:center;flex-wrap:wrap;row-gap:2px}
+}
